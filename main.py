@@ -12,10 +12,15 @@ def main():
     # Main Menu
     loop = True
     while loop:
+
+        # get attributes
+
+
         selection = getMenuSelection()
 
         if selection == "1":
             displayAll(baby_data)
+
         elif selection == "2":
             searchGender(baby_data)
         elif selection == "3":
@@ -45,7 +50,7 @@ def getMenuSelection():
 def displayAll(baby_data):
     # Display All Baby Data
     print("\nDISPLAY ALL")
-
+    print(baby_data.name)
 
 def searchGender(baby_data):
     # Dislay All Baby Names based on Gender
