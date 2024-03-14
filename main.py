@@ -2,10 +2,12 @@ import json
 
 
 def main():
+    # Load Baby Data from File
     file = open("baby-names-data.json")
     baby_data = json.load(file)
     file.close()
 
+    # Main Menu
     loop = True
     while loop:
         selection = getMenuSelection()
@@ -26,6 +28,7 @@ def main():
 
 
 def getMenuSelection():
+    # Print Menu & Return User Selection
     print("\n*** BABY DATA - MAIN MENU ***")
     print("* 1: Display All")
     print("* 2: Search by Gender")
@@ -38,12 +41,14 @@ def getMenuSelection():
 
 
 def displayAll(baby_data):
+    # Display All Baby Data
     print("\nDISPLAY ALL")
     for entry in baby_data:
         print(f"{entry['Name']} (Rank: {entry['Rank']}, Gender: {entry['Gender']})")
 
 
 def searchGender(baby_data):
+    # Dislay All Baby Names based on Gender
     print("\nSEARCH BY GENDER")
     gender = input("Enter a gender (Boy/Girl): ").capitalize()
     for entry in baby_data:
@@ -52,6 +57,7 @@ def searchGender(baby_data):
 
 
 def searchRank(baby_data):
+    # Display All Baby Names based on Rank
     print("\nSEARCH BY RANK")
     min_rank = int(input("Enter a minimum rank: "))
     max_rank = int(input("Enter a maximum rank: "))
@@ -61,6 +67,7 @@ def searchRank(baby_data):
 
 
 def searchStartLetter(baby_data):
+    # Display Baby Names starting with a letter
     print("\nSEARCH BY START LETTER")
     start_letter = input("Enter a starting letter: ").capitalize()
     for entry in baby_data:
@@ -69,6 +76,7 @@ def searchStartLetter(baby_data):
 
 
 def searchNameLength(baby_data):
+    # Display Baby Names of a specific length
     print("\nSEARCH BY NAME LENGTH")
     name_length = int(input("Enter a name length: "))
     for entry in baby_data:
@@ -76,5 +84,6 @@ def searchNameLength(baby_data):
             print(f"{entry['Name']} (Rank: {entry['Rank']}, Gender: {entry['Gender']})")
 
 
+# Invoke main to begin program
 if __name__ == "__main__":
     main()
